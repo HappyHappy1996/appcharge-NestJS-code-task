@@ -3,6 +3,7 @@ version: '3.8'
 services:
   postgres:
     image: postgres:14.3-alpine
+    restart: unless-stopped
     ports:
       - ${TYPEORM_PORT}:5432
     environment:
@@ -11,6 +12,20 @@ services:
       - POSTGRES_PASSWORD=${TYPEORM_PASSWORD}
     volumes:
       - postgresdata:/var/lib/postgresql/data
+
+  backend:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    ports:
+      - 127.0.0.1:${API_PORT}:3000/tcp
+      - 9252:9252 # debugger port
+    volumes:
+      - ./src:/app/src
+      - ./test:/app/test
+      - ./migrations:/app/migrations
+    command: npm run start:debug
 
 volumes:
   postgresdata:
