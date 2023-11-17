@@ -33,3 +33,15 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# folders with generated flame graps
+.clinic
+flame-graps
+
+# docker
+volume
+
+# ignore all .env files
+.env**
+# EXCEPT .env.example
+!.env.example
