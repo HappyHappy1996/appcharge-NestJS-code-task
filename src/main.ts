@@ -28,6 +28,11 @@ async function bootstrap() {
     SwaggerModule.setup('api', app, document, customOptions);
   }
 
-  await app.listen(process.env.API_PORT);
+  const port = process.env.API_PORT;
+
+  await app.listen(port);
+
+  const logger = app['logger'];
+  logger.log(`Started listening for HTTP traffic on port ${port}`);
 }
 bootstrap();
