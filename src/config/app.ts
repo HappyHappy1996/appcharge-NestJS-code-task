@@ -4,6 +4,8 @@ export interface AppConfig {
   serviceName: string;
   env: string;
 
+  authSecret: string;
+
   apiPort: number;
   apiDocumentation: boolean;
 
@@ -16,6 +18,8 @@ export const appConfig = registerAs(
   (): AppConfig => ({
     serviceName: process.env.SERVICE_NAME || 'ps-app',
     env: process.env.SERVICE_ENVIRONMENT,
+
+    authSecret: process.env.AUTH_SECRET,
 
     apiPort: Number(process.env.API_PORT) || 3000,
     apiDocumentation: !!process.env.API_DOCUMENTATION,
