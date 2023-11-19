@@ -1,13 +1,9 @@
 import { Repository } from 'typeorm';
-import {
-  Injectable,
-} from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 
 import { Offer } from 'src/modules/offer/offer.entity';
 
-import {
-  OfferDto,
-} from 'src/modules/offer/offer.dto';
+import { OfferDto } from 'src/modules/offer/offer.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
@@ -15,8 +11,7 @@ export class OfferService {
   constructor(
     @InjectRepository(Offer)
     private repository: Repository<Offer>,
-  ) {
-  }
+  ) {}
 
   async findAll(): Promise<Offer[]> {
     return this.repository.find();
@@ -24,7 +19,13 @@ export class OfferService {
 
   async getById(id): Promise<Offer> {
     return this.repository.findOneBy({
-      id
+      id,
+    });
+  }
+
+  async getByOfferSetId(offerSetId: string): Promise<Offer> {
+    return this.repository.findOneBy({
+      offerSetId,
     });
   }
 

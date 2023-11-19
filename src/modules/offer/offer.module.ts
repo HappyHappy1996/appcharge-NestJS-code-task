@@ -8,9 +8,7 @@ import { OfferController } from 'src/modules/offer/offer.controller';
 
 @Global()
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([Offer]),
-  ],
+  imports: [TypeOrmModule.forFeature([Offer])],
   providers: [OfferService],
   controllers: [OfferController],
   exports: [OfferService],
