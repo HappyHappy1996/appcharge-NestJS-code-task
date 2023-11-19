@@ -1,0 +1,19 @@
+{
+  "gameId": "123",
+  "offerSetName": "123",
+  "offerSetId": "123",
+  "sku": "123",
+  "availability": 123,
+  "priceInCents": 123,
+  "currency": "123",
+  "products": [{
+    "amount": 500,
+    "sku": "002",
+    "name": "dice medium"
+  },
+    {
+      "amount": 1500,
+      "sku": "005",
+      "name": "coins medium"
+    }]
+}

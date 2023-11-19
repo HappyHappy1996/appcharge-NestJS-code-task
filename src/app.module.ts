@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { OfferModule } from 'src/modules/offer/offer.module';
 import { DatabaseModule } from './modules/database/database.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -17,6 +18,7 @@ import {
       ],
     }),
     DatabaseModule,
+    OfferModule,
   ],
   controllers: [AppController],
   providers: [AppService],
