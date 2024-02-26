@@ -29,5 +29,16 @@ services:
       - ./migrations:/app/migrations
     command: npm run start:debug
 
+  mocks-server:
+    image: mocksserver/main:4.0.1
+    restart: unless-stopped
+    ports:
+      - 3100:3100
+      - 3110:3110
+    environment:
+        - MOCKS_PLUGINS_INQUIRER_CLI_ENABLED=false
+    volumes:
+      - ./mocks-server:/input
+
 volumes:
   postgresdata:

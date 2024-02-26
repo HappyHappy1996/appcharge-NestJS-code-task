@@ -1,0 +1,5 @@
+mock:
+  collections:
+    selected: "base"
+  routes:
+    delay: 5000
