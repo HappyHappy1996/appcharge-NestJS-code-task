@@ -45,3 +45,8 @@ volume
 .env**
 # EXCEPT .env.example
 !.env.example
+/test-results/
+/test/playwright-auth.json
+/playwright-report/
+/blob-report/
+/playwright/.cache/
